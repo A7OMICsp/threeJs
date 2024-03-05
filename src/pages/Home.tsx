@@ -5,6 +5,7 @@ import Island from "../models/Island"
 import Sky from "../models/Sky"
 import Bird from "../models/Bird"
 import Plane from "../models/Plane"
+import Diver from "../models/Diver"
 
 {/* <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
   POPUP
@@ -32,14 +33,14 @@ const Home = () => {
   const adjustPlaneForScreenSize = () => {
     let screenScale: number[];
     let screenPosition: number[];
-    const rotation: number[] = [0, -1.7, 0.4];
+    const rotation: number[] = [0, 20.4, -0.4];
 
     if (window.innerWidth < 768) {
       screenScale = [1.2, 1.2, 1.2];
       screenPosition = [0, -.7, 1.9]
     } else {
-      screenScale = [3, 3, 3];
-      screenPosition = [0, -1, 3]
+      screenScale = [1.5, 1.5, 1.5];
+      screenPosition = [0, -1, 1.8]
     }
 
     return [screenScale, screenPosition, rotation]
@@ -60,13 +61,16 @@ const Home = () => {
           <hemisphereLight color="#b1e1ff" groundColor="#000" intensity={1}/>
 
           <Bird />
+          <Diver />
           <Plane
             position={planePosition}
             scale={planeScale}
-            rotation={[0, 20, -0.2]}
+            rotation={planeRotation}
             isRotating={isRotating}
           />
-          <Sky />
+          <Sky 
+            isRotating={isRotating}
+          />
           <Island 
             position={islandPosition}
             scale={islandScale}
