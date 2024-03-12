@@ -61,7 +61,7 @@ const Home = () => {
           <hemisphereLight color="#b1e1ff" groundColor="#000" intensity={1}/>
 
           <Bird />
-          <Diver />
+          {/* <Diver /> */}
           <Plane
             position={planePosition}
             scale={planeScale}
